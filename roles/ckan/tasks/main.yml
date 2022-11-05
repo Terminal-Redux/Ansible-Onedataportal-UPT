@@ -9,10 +9,9 @@
     state: present
   with_items:
     - build-essential
-    - python3-pip
-    - python3-virtualenv
-    - python3-venv
-    - python3-dev
+    - python-pip
+    - python-virtualenv
+    - python-dev
     - libxslt1-dev
     - libxml2-dev
     - zlib1g-dev
@@ -69,14 +68,14 @@
     name: setuptools==36.1
 
 - name: Upgrade python3-pip
-  command: pip3 install --upgrade pip
+  command: pip install --upgrade pip
 
 - name: Install virtualenv via pip
   become: true
   become_user: "{{ ckan_user.name }}"
   pip:
     name: virtualenv
-    executable: pip3
+    executable: pip
 
 - name: "Install required setuptools version 36.1"
   become: true
@@ -84,7 +83,7 @@
   pip:
     name: setuptools==36.1
     virtualenv: "{{ ckan_virtualenv }}"
-    virtualenv_command: "python3 -m venv"
+    # virtualenv_command: "python3 -m venv"
 
 - name: "Install CKAN from `{{ ckan_src_url }}`"
   become: true
