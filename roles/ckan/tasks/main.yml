@@ -64,7 +64,7 @@
     comment: "{{ ckan_user.description }}"
   when: ckan_user is defined
 
-- pip3:
+- pip:
     name: setuptools==65.5.1
 
 - name: Upgrade python3-pip
@@ -73,14 +73,14 @@
 - name: "Install required setuptools version 65.5.1"
   become: true
   become_user: "{{ ckan_user.name }}"
-  pip3:
+  pip:
     name: setuptools==65.5.1
     virtualenv: "{{ ckan_virtualenv }}"
 
 - name: "Install CKAN from `{{ ckan_src_url }}`"
   become: true
   become_user: "{{ ckan_user.name }}"
-  pip3:
+  pip:
     name: "{{ ckan_src_url }}"
     virtualenv: "{{ ckan_virtualenv }}"
     editable: yes
@@ -89,7 +89,7 @@
 - name: "Install CKAN Python package requirements from `{{ ckan_virtualenv }}/src/ckan/requirements.txt`"
   become: true
   become_user: "{{ ckan_user.name }}"
-  pip3:
+  pip:
     requirements: "{{ ckan_virtualenv }}/src/ckan/requirements.txt"
     virtualenv: "{{ ckan_virtualenv }}"
     state: present
@@ -97,7 +97,7 @@
 - name: "Install ckanapi Python package version `{{ ckan_ckanapi_version }}` from `https://pypi.org/project/ckanapi/`"
   become: true
   become_user: "{{ ckan_user.name }}"
-  pip3:
+  pip:
     name: "ckanapi=={{ ckan_ckanapi_version }}"
     virtualenv: "{{ ckan_virtualenv }}"
 
