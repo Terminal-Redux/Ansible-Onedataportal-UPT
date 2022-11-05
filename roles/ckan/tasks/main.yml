@@ -66,7 +66,7 @@
   when: ckan_user is defined
 
 - pip:
-    name: setuptools==59.6.0
+    name: setuptools==36.1
 
 - name: Upgrade python3-pip
   command: pip3 install --upgrade pip
@@ -78,11 +78,11 @@
     name: virtualenv
     executable: pip3
 
-- name: "Install required setuptools version 59.6.0"
+- name: "Install required setuptools version 36.1"
   become: true
   become_user: "{{ ckan_user.name }}"
   pip:
-    name: setuptools==59.6.0
+    name: setuptools==36.1
     virtualenv: "{{ ckan_virtualenv }}"
     virtualenv_command: "python3 -m venv"
 
