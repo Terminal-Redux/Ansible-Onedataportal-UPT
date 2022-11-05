@@ -99,7 +99,7 @@
 - name: "Install ckanext-spatial extension from `{{ ckanext_spatial_src_url }}`"
   become: true
   become_user: "{{ ckan_user.name }}"
-  pip:
+  pip3:
     name: "{{ ckanext_spatial_src_url }}"
     virtualenv: "{{ ckan_virtualenv }}"
     editable: yes
@@ -108,7 +108,7 @@
 - name: "Install ckanext-spatial package requirements from `{{ ckan_virtualenv }}/src/ckanext-spatial/pip-requirements.txt`"
   become: true
   become_user: "{{ ckan_user.name }}"
-  pip:
+  pip3:
     # 202109 update ckanext-spatial from v0.2 to v1.0.0
     #requirements: "{{ ckan_virtualenv }}/src/ckanext-spatial/pip-requirements.txt"
     requirements: "{{ ckan_virtualenv }}/src/ckanext-spatial/pip-requirements-py2.txt"
@@ -150,14 +150,14 @@
 - name: "Install ckanext-harvest extension version {{ ckanext_harvest_version }} from `{{ ckanext_harvest_src_url }}`"
   become: true
   become_user: "{{ ckan_user.name }}"
-  pip:
+  pip3:
     name: "{{ ckanext_harvest_src_url }}"
     virtualenv: "{{ ckan_virtualenv }}"
     editable: yes
     state: present
 
 - name: "[FIX] Install `urllib3` package dependency for ckanext-harvest v1.3.1"
-  pip:
+  pip3:
     name: urllib3
     virtualenv: "{{ ckan_virtualenv }}"
   when: ckanext_harvest_version == "v1.3.1"
@@ -165,7 +165,7 @@
 - name: "Install ckanext-harvest package requirements from `{{ ckan_virtualenv }}/src/ckanext-harvest/pip-requirements.txt`"
   become: true
   become_user: "{{ ckan_user.name }}"
-  pip:
+  pip3:
     requirements: "{{ ckan_virtualenv }}/src/ckanext-harvest/pip-requirements.txt"
     virtualenv: "{{ ckan_virtualenv }}"
     state: present
@@ -226,7 +226,7 @@
 # Setup ckanext-geoview extension (version 0.0.16 as of 202003)
 # https://github.com/ckan/ckanext-geoview
 - name: "Install ckanext-geoview extension version {{ ckanext_geoview_version }}"
-  pip:
+  pip3:
     name: "ckanext-geoview=={{ ckanext_geoview_version }}"
     virtualenv: "{{ ckan_virtualenv }}"
 
@@ -312,7 +312,7 @@
 - name: "Install DataPusher service from `{{ ckan_datapusher_src_url }}`"
   become: true
   become_user: "{{ ckan_user.name }}"
-  pip:
+  pip3:
     name: "{{ ckan_datapusher_src_url }}"
     virtualenv: "{{ ckan_datapusher_virtualenv }}"
     editable: yes
@@ -322,14 +322,14 @@
 - name: "Install DataPusher package requirements from `{{ ckan_virtualenv }}/src/datapusher/requirements.txt`"
   become: true
   become_user: "{{ ckan_user.name }}"
-  pip:
+  pip3:
     requirements: "{{ ckan_datapusher_virtualenv }}/src/datapusher/requirements.txt"
     virtualenv: "{{ ckan_datapusher_virtualenv }}"
     state: present
   when: ckan_datapusher_installed.stat.exists == false
 
 - name: "[FIX] Upgrade CKAN Service Provider package from v 0.0.8 to 0.0.9 to fix package conflict in DataPusher v 0.0.15"
-  pip:
+  pip3:
     name: ckanserviceprovider==0.0.9
     virtualenv: "{{ ckan_datapusher_virtualenv }}"
   when: ckan_datapusher_installed.stat.exists == false and fix_datapusher_0_0_15_package_conflict == true
@@ -404,7 +404,7 @@
 - name: "Install pycsw service from `{{ pycsw_src_url }}`"
   become: true
   become_user: "{{ ckan_user.name }}"
-  pip:
+  pip3:
     name: "{{ pycsw_src_url }}"
     virtualenv: "{{ ckan_virtualenv }}"
     editable: yes
@@ -475,7 +475,7 @@
 - name: "Install ckanext-agsview extension from `{{ ckanext_agsview_src_url }}`"
   become: true
   become_user: "{{ ckan_user.name }}"
-  pip:
+  pip3:
     name: "{{ ckanext_agsview_src_url }}"
     virtualenv: "{{ ckan_virtualenv }}"
     editable: yes
@@ -518,7 +518,7 @@
 - name: "Install ckanext-pdfview extension from `{{ ckanext_pdfview_src_url }}`"
   become: true
   become_user: "{{ ckan_user.name }}"
-  pip:
+  pip3:
     name: "{{ ckanext_pdfview_src_url }}"
     virtualenv: "{{ ckan_virtualenv }}"
     editable: yes
@@ -567,7 +567,7 @@
 - name: "Install ckanext-pages extension from `{{ ckanext_pages_src_url }}`"
   become: true
   become_user: "{{ ckan_user.name }}"
-  pip:
+  pip3:
     name: "{{ ckanext_pages_src_url }}"
     virtualenv: "{{ ckan_virtualenv }}"
     editable: yes
@@ -597,7 +597,7 @@
 - name: "Install ckanext-officedocs extension from `{{ ckanext_officedocs_src_url }}`"
   become: true
   become_user: "{{ ckan_user.name }}"
-  pip:
+  pip3:
     name: "{{ ckanext_officedocs_src_url }}"
     virtualenv: "{{ ckan_virtualenv }}"
     editable: yes
@@ -646,7 +646,7 @@
 - name: "Install ckanext-onedataportal extension from `{{ ckanext_onedataportal_src_url }}`"
   become: true
   become_user: "{{ ckan_user.name }}"
-  pip:
+  pip3:
     name: "{{ ckanext_onedataportal_src_url }}"
     virtualenv: "{{ ckan_virtualenv }}"
     editable: yes
@@ -655,7 +655,7 @@
 - name: "Install ckanext-onedataportal package requirements from `{{ ckan_virtualenv }}/src/ckanext-onedataportal/requirements.txt`"
   become: true
   become_user: "{{ ckan_user.name }}"
-  pip:
+  pip3:
     requirements: "{{ ckan_virtualenv }}/src/ckanext-onedataportal/requirements.txt"
     virtualenv: "{{ ckan_virtualenv }}"
     state: present
@@ -711,7 +711,7 @@
 - name: "Install ckanext-issues extension from `{{ ckanext_issues_src_url }}`"
   become: true
   become_user: "{{ ckan_user.name }}"
-  pip:
+  pip3:
     name: "{{ ckanext_issues_src_url }}"
     virtualenv: "{{ ckan_virtualenv }}"
     editable: yes
@@ -771,7 +771,7 @@
 - name: "Install ckanext-privatedatasets extension from `{{ ckanext_privatedatasets_src_url }}`"
   become: true
   become_user: "{{ ckan_user.name }}"
-  pip:
+  pip3:
     name: "{{ ckanext_privatedatasets_src_url }}"
     virtualenv: "{{ ckan_virtualenv }}"
     editable: yes
@@ -812,7 +812,7 @@
 - name: "Install ckanext-scheming extension from `{{ ckanext_scheming_src_url }}`"
   become: true
   become_user: "{{ ckan_user.name }}"
-  pip:
+  pip3:
     name: "{{ ckanext_scheming_src_url }}"
     virtualenv: "{{ ckan_virtualenv }}"
     editable: yes
@@ -821,7 +821,7 @@
 - name: "Install ckanext-scheming package requirements from `{{ ckan_virtualenv }}/src/ckanext-scheming/requirements.txt`"
   become: true
   become_user: "{{ ckan_user.name }}"
-  pip:
+  pip3:
     requirements: "{{ ckan_virtualenv }}/src/ckanext-scheming/requirements.txt"
     virtualenv: "{{ ckan_virtualenv }}"
     state: present
@@ -862,7 +862,7 @@
 # - name: "Install ckanext-repeating extension from `{{ ckanext_repeating_src_url }}`"
 #   become: true
 #   become_user: "{{ ckan_user.name }}"
-#   pip:
+#   pip3:
 #     name: "{{ ckanext_repeating_src_url }}"
 #     virtualenv: "{{ ckan_virtualenv }}"
 #     editable: yes
@@ -892,7 +892,7 @@
 # - name: "Install ckanext-composite extension from `{{ ckanext_composite_src_url }}`"
 #   become: true
 #   become_user: "{{ ckan_user.name }}"
-#   pip:
+#   pip3:
 #     name: "{{ ckanext_composite_src_url }}"
 #     virtualenv: "{{ ckan_virtualenv }}"
 #     editable: yes
@@ -922,7 +922,7 @@
 #- name: "Install ckanext-validation extension from `{{ ckanext_validation_src_url }}`"
 #  become: true
 #  become_user: "{{ ckan_user.name }}"
-#  pip:
+#  pip3:
 #    name: "{{ ckanext_validation_src_url }}"
 #    virtualenv: "{{ ckan_virtualenv }}"
 #    editable: yes
@@ -931,7 +931,7 @@
 #- name: "Install ckanext-validation package requirements from `{{ ckan_virtualenv }}/src/ckanext-validation/requirements.txt`"
 #  become: true
 #  become_user: "{{ ckan_user.name }}"
-#  pip:
+#  pip3:
 #    requirements: "{{ ckan_virtualenv }}/src/ckanext-validation/requirements.txt"
 #    virtualenv: "{{ ckan_virtualenv }}"
 #    state: present
@@ -979,7 +979,7 @@
 - name: "Install ckanext-mapviews extension from `{{ ckanext_mapviews_src_url }}`"
   become: true
   become_user: "{{ ckan_user.name }}"
-  pip:
+  pip3:
     name: "{{ ckanext_mapviews_src_url }}"
     virtualenv: "{{ ckan_virtualenv }}"
     editable: yes
@@ -1009,7 +1009,7 @@
 - name: "Install ckanext-basiccharts extension from `{{ ckanext_basiccharts_src_url }}`"
   become: true
   become_user: "{{ ckan_user.name }}"
-  pip:
+  pip3:
     name: "{{ ckanext_basiccharts_src_url }}"
     virtualenv: "{{ ckan_virtualenv }}"
     editable: yes
