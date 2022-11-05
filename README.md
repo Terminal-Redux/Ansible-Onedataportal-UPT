@@ -42,7 +42,14 @@
       executable location = /usr/bin/ansible
       python version = 2.7.17 (default, Nov  7 2019, 10:07:09) [GCC 7.4.0]
   ```
-  
+
+### WIP Instructions
+* Install Python 3.7 >=.
+* Run the following command to avoid conflicts using apt:
+  ```
+  sudo ln -s apt_pkg.cpython-36m-x86_64-linux-gnu.so apt_pkg.so
+  ```
+
 ## How to run
 SSH to the target server and perform the following steps:
 * Clone this repo (install `git` package if necessary)

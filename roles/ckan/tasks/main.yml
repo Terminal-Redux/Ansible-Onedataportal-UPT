@@ -84,6 +84,7 @@
   pip:
     name: setuptools==59.6.0
     virtualenv: "{{ ckan_virtualenv }}"
+    virtualenv_command: "python3 -m venv"
 
 - name: "Install CKAN from `{{ ckan_src_url }}`"
   become: true
