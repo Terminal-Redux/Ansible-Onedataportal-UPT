@@ -14,8 +14,8 @@ ckan_user:
   }
 # IMPORTANT: must use _ for space character in ckan_site_name!
 ckan_site_name: ckan
-ckan_site_url: "http://192.168.1.200"
-ckan_version: 2.8.3
+ckan_site_url: "http://ckan.test"
+ckan_version: 2.9.7
 ckan_src_url: "git+https://github.com/ckan/ckan.git@ckan-{{ ckan_version }}#egg=ckan"
 ckan_solr_url: "http://127.0.0.1:8983/solr/ckan"
 ckan_virtualenv: "{{ ckan_user.home_path }}/{{ ckan_site_name }}"
@@ -39,9 +39,9 @@ ckan_smtp_password: "changethispassword"
 ckan_smtp_mail_from: "no-reply@yourdomain.com"
 ckan_create_admin_user: true
 #ckan_locale_default: en
-ckan_locale_default: id
+ckan_locale_default: en
 #ckan_locale_order: "en id pt_BR ja it cs_CZ ca es fr el sv sr sr@latin no sk fi ru de pl nl bg ko_KR hu sa sl lv"
-ckan_locale_order: "id en pt_BR ja it cs_CZ ca es fr el sv sr sr@latin no sk fi ru de pl nl bg ko_KR hu sa sl lv"
+ckan_locale_order: "en id pt_BR ja it cs_CZ ca es fr el sv sr sr@latin no sk fi ru de pl nl bg ko_KR hu sa sl lv"
 # IMPORTANT: must use _ for space character in ckan_admin.username!
 ckan_admin:
   {
@@ -57,7 +57,7 @@ ckan_db:
     name: "ckan_default",
     host: "localhost",
   }
-ckan_ckanapi_version: 4.5
+ckan_ckanapi_version: 4.7
 ckan_ckanapi_organizations_dump_file: "/tmp/ckanorgsdump.jsonl"
 ckan_ckanapi_users_dump_file: "/tmp/ckanusersdump.jsonl"
 ckan_ckanapi_datasets_dump_file: "/tmp/ckandatasetsdump.jsonl"
@@ -68,14 +68,14 @@ ckan_sysadmin_api_key: "CKAN_SYSADMIN_API_KEY"
 #ckanext_spatial_version: "4ac25f19aa4eb9c798451f5eeb3084f907ccc003"
 ckanext_spatial_version: "v1.0.0"
 ckanext_spatial_src_url: "git+https://github.com/ckan/ckanext-spatial.git@{{ ckanext_spatial_version }}#egg=ckanext-spatial"
-ckanext_harvest_version: "v1.2.0"
+ckanext_harvest_version: "v1.4.0"
 ckanext_harvest_src_url: "git+https://github.com/ckan/ckanext-harvest.git@{{ ckanext_harvest_version }}#egg=ckanext-harvest"
-ckan_datapusher_version: 0.0.16
+ckan_datapusher_version: 0.0.18
 ckan_datapusher_src_url: "git+https://github.com/ckan/datapusher.git@{{ ckan_datapusher_version }}#egg=datapusher"
 ckan_datapusher_virtualenv: "{{ ckan_user.home_path }}/datapusher"
 fix_datapusher_0_0_15_package_conflict: false
-ckanext_geoview_version: 0.0.16
-pycsw_version: 2.4.2
+ckanext_geoview_version: 0.0.20
+pycsw_version: 2.6.1
 pycsw_src_url: "git+https://github.com/geopython/pycsw.git@{{ pycsw_version }}#egg=pycsw"
 datastore_db:
   {
@@ -92,31 +92,31 @@ pycsw_db:
     name: "pycsw",
     host: "localhost",
   }
-ckanext_agsview_version: "31887eed03777cb252d7120030cf60be36e4f5c5"
+ckanext_agsview_version: "e5f27848823246b03ce956c629f47a5f689e53f0"
 ckanext_agsview_src_url: "git+https://github.com/OpenGov-OpenData/ckanext-agsview.git@{{ ckanext_agsview_version }}#egg=ckanext-agsview"
-ckanext_pdfview_version: "6669a93b249413aba6653634849ed5a2eb7cca7a"
+ckanext_pdfview_version: "0.0.6"
 ckanext_pdfview_src_url: "git+https://github.com/ckan/ckanext-pdfview.git@{{ ckanext_pdfview_version }}#egg=ckanext-pdfview"
-ckanext_pages_version: "v0.2.3"
+ckanext_pages_version: "v0.3.7"
 ckanext_pages_src_url: "git+https://github.com/ckan/ckanext-pages.git@{{ ckanext_pages_version }}#egg=ckanext-pages"
-ckanext_officedocs_version: "8c12453dacb7edcf0856ecff45e0d4ca4d5ac2e9"
+ckanext_officedocs_version: "v1.1.0"
 ckanext_officedocs_src_url: "git+https://github.com/jqnatividad/ckanext-officedocs.git@{{ ckanext_officedocs_version }}#egg=ckanext-officedocs"
 ckanext_onedataportal_src_url: "git+https://github.com/geoenvo/ckanext-onedataportal.git#egg=ckanext-onedataportal"
 ckan_onedataportal_geoportal_url: "{{ ckan_site_url }}:8080"
 ckan_onedataportal_geoportal_name: Geoportal
-ckanext_issues_version: "bb9b0b8e339a2752d858f2dfee069b9d507793aa"
+ckanext_issues_version: "v1.0.0"
 ckan_issues_send_email_notifications: false
-ckanext_issues_src_url: "git+https://github.com/OpenGov-OpenData/ckanext-issues.git@{{ ckanext_issues_version }}#egg=ckanext-issues"
+ckanext_issues_src_url: "git+https://github.com/keitaroinc/ckanext-issues.git@{{ ckanext_issues_version }}#egg=ckanext-issues"
 ckanext_privatedatasets_src_url: "git+https://github.com/geoenvo/ckanext-privatedatasets.git#egg=ckanext-privatedatasets"
-ckanext_scheming_version: "aa53d64369dc7304f525da8ec5cb11bbf445b24f"
-# ckanext_scheming_src_url: "git+https://github.com/ckan/ckanext-scheming.git@{{ ckanext_scheming_version }}#egg=ckanext-scheming"
-ckanext_scheming_src_url: "git+https://github.com/ckan/ckanext-scheming.git#egg=ckanext-scheming"
-ckanext_repeating_version: "291295557ff74b26784f6271c1a1b4ffdb990f43"
-ckanext_repeating_src_url: "git+https://github.com/open-data/ckanext-repeating.git@{{ ckanext_repeating_version }}#egg=ckanext-repeating"
-ckanext_composite_version: "a14fdaf6c59558ac1fb7a1cc6fc47bf7cd407e15"
-ckanext_composite_src_url: "git+https://github.com/EnviDat/ckanext-composite.git@{{ ckanext_composite_version }}#egg=ckanext-composite"
-ckanext_validation_version: "23dd8a50edb974d1253361d89620aff06ba3906c"
+ckanext_scheming_version: "release-2.1.0"
+ckanext_scheming_src_url: "git+https://github.com/ckan/ckanext-scheming.git@{{ ckanext_scheming_version }}#egg=ckanext-scheming"
+# ckanext_scheming_src_url: "git+https://github.com/ckan/ckanext-scheming.git#egg=ckanext-scheming"
+# ckanext_repeating_version: "291295557ff74b26784f6271c1a1b4ffdb990f43"
+# ckanext_repeating_src_url: "git+https://github.com/open-data/ckanext-repeating.git@{{ ckanext_repeating_version }}#egg=ckanext-repeating"
+# ckanext_composite_version: "a14fdaf6c59558ac1fb7a1cc6fc47bf7cd407e15"
+# ckanext_composite_src_url: "git+https://github.com/EnviDat/ckanext-composite.git@{{ ckanext_composite_version }}#egg=ckanext-composite"
+ckanext_validation_version: "v1.0.0"
 ckanext_validation_src_url: "git+https://github.com/frictionlessdata/ckanext-validation.git@{{ ckanext_validation_version }}#egg=ckanext-validation"
-ckanext_mapviews_version: "b6a72bfb4be6b63463664924321a72bfb1bf504f"
+ckanext_mapviews_version: "cd5ccb6bcb9a903f8661e0213c7ebd46ea21f4f5"
 ckanext_mapviews_src_url: "git+https://github.com/ckan/ckanext-mapviews.git@{{ ckanext_mapviews_version }}#egg=ckanext-mapviews"
-ckanext_basiccharts_version: "fa1e70838c3b963a37467275f8eaee7ba02a616b"
+ckanext_basiccharts_version: "dfe2c4f5859c29f72960ed416f7f2bd77e3c3090"
 ckanext_basiccharts_src_url: "git+https://github.com/localidata/ckanext-basiccharts.git@{{ ckanext_basiccharts_version }}#egg=ckanext-basiccharts"
