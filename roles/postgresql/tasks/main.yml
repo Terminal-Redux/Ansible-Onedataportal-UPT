@@ -27,12 +27,12 @@
     name: "{{ item }}"
     state: present
   with_items:
-   - "postgresql-{{ postgresql_version }}"
-   - "postgresql-contrib-{{ postgresql_version }}"
-   - "postgresql-{{ postgresql_version }}-postgis-{{ postgis_version }}"
-   - postgis
-   - libpq-dev
-   - python-psycopg2
+    - "postgresql-{{ postgresql_version }}"
+    - "postgresql-contrib-{{ postgresql_version }}"
+    - "postgresql-{{ postgresql_version }}-postgis-{{ postgis_version }}"
+    - postgis
+    - libpq-dev
+    - python3-psycopg2
 
 - name: Check if `pg_hba.conf` and `postgresql.conf` backups have been created
   stat:
@@ -87,7 +87,6 @@
   ##command: psql -U postgres -c "ALTER USER postgres with password '{{ postgres_user_password }}';"
   ## notify only fires if task returns changed state
   notify: restart postgresql
-
 ## use notify to restart postgresql instead
 ##- name: Restart PostgreSQL
 ##  systemd:
