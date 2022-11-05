@@ -11,6 +11,7 @@
     - build-essential
     - python3-pip
     - python3-virtualenv
+    - python3-venv
     - python3-dev
     - libxslt1-dev
     - libxml2-dev
@@ -65,16 +66,23 @@
   when: ckan_user is defined
 
 - pip:
-    name: setuptools==65.5.1
+    name: setuptools==59.6.0
 
 - name: Upgrade python3-pip
   command: pip3 install --upgrade pip
 
-- name: "Install required setuptools version 65.5.1"
+- name: Install virtualenv via pip
   become: true
   become_user: "{{ ckan_user.name }}"
   pip:
-    name: setuptools==65.5.1
+    name: virtualenv
+    executable: pip3
+
+- name: "Install required setuptools version 59.6.0"
+  become: true
+  become_user: "{{ ckan_user.name }}"
+  pip:
+    name: setuptools==59.6.0
     virtualenv: "{{ ckan_virtualenv }}"
 
 - name: "Install CKAN from `{{ ckan_src_url }}`"
